@@ -1,0 +1,38 @@
+
+# Simple Explanation of the Secant and Bisection Method Code
+
+This C program allows the user to solve equations of the form f(x) = 0 using two numerical methods:
+1. Secant Method
+2. Bisection Method
+
+## Libraries and Definitions
+- `<stdio.h>`, `<stdlib.h>`, `<math.h>`, `<string.h>`: Standard C libraries.
+- `"tinyexpr.h"` and `"tinyexpr.c"`: Used to evaluate the mathematical expressions provided by the user.
+- `MAX_ITER` and `MAX_FUNC_LEN`: Constants to limit iterations and string length for the function.
+
+## Helper Functions
+- `clearBuffer()`: Clears leftover characters in the input buffer after using `scanf`.
+- `getFunction(char *func)`: Prompts user to enter a function in terms of x (like x^2 - 2).
+- `evalFunction(const char *func, double x)`: Uses TinyExpr to evaluate the function at a given x.
+
+## Secant Method
+1. User enters the function, initial guesses x0 and x1, and number of iterations.
+2. The method iteratively updates the guess using the formula:
+   x2 = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))
+3. For each iteration, values of x0, x1, and x2 and their function values are printed.
+4. The final approximation is displayed.
+
+## Bisection Method
+1. User enters the function, two points a and b, and a tolerance or number of iterations.
+2. The program checks if f(a) and f(b) have opposite signs (required for bisection).
+3. If requested, the number of iterations is calculated from the error tolerance.
+4. Iteratively, the midpoint xm = (a + b) / 2 is calculated and evaluated.
+5. Depending on the sign of f(xm), the interval [a, b] is updated.
+6. The process stops if the error is small or the exact root is found.
+7. Solving steps and final approximation are printed.
+
+## Main Function
+- The user chooses which method to use.
+- Based on the input, the corresponding method function is called.
+
+This program is useful for solving equations when you can’t find the root analytically, using two popular numerical techniques.
